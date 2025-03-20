@@ -1,0 +1,60 @@
+.Footer {
+    background: #fff1e1;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    text-align: center;
+    position: relative;
+  }
+
+
+.Ajouter {
+    background-color: #ee813d;
+    color: #fff1e1;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 3px;
+  }
+  
+
+  form {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff5e9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: black;
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  form input,
+  form textarea,
+  form select {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  form button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  form button:hover {
+    background-color: #ee813d;
+  }

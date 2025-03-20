@@ -1,0 +1,68 @@
+
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+.task {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid #007bff;
+}
+
+
+.task.urgent {
+  border-left-color: red;
+  background: #ffecec;
+}
+
+
+.etat {
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+
+.etat.reussi {
+  background-color: #28a745;
+  color: white;
+}
+
+.etat.en-attente {
+  background-color: #ffc107;
+  color: black;
+}
+
+.etat.nouveau {
+  background-color: #007bff;
+  color: white;
+}
+
+
+
+
