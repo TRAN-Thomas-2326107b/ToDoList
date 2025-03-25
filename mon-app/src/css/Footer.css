@@ -1,60 +1,102 @@
 .Footer {
-    background: #fff1e1;
-    color: rgb(255, 255, 255);
-    padding: 10px;
-    text-align: center;
-    position: relative;
-  }
-
+  background: #1A1A1A;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  border-top: 3px solid #0038c6;
+}
 
 .Ajouter {
-    background-color: #ee813d;
-    color: #fff1e1;
-    border: none;
-    padding: 12px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    margin: 3px;
-  }
-  
+  background-color: #b60034;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 3px;
+  transition: 0.3s ease-in-out;
+}
 
-  form {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #fff5e9;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    color: black;
-  }
-  
-  form label {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  form input,
-  form textarea,
-  form select {
-    width: 100%;
-    padding: 8px;
-    margin: 5px 0 15px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  form button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 15px;
-    font-size: 16px;
-    font-weight: bold;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  form button:hover {
-    background-color: #ee813d;
-  }
+.Ajouter:hover {
+  background-color: #0038c6;
+  box-shadow: 0 0 10px rgba(0,56,198, 0.6);
+}
+
+form {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #222222;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,56,198, 0.4);
+  color: white;
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+form input,
+form textarea,
+form select {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0 15px 0;
+  border: 1px solid #C70039;
+  border-radius: 4px;
+  background: #1E1E1E;
+  color: white;
+}
+
+form button {
+  background-color: #0038c6;
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+form button:hover {
+  background-color: #C70039;
+  box-shadow: 0 0 10px rgba(0,56,198, 0.6);
+}
+
+
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.tabs button {
+  background-color: #1A1A1A;
+  color: white;
+  padding: 12px 30px;
+  margin: 0 10px;
+  border: 1px solid #C70039;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.tabs button.active {
+  background-color: #0038c6;
+  color: white;
+  border-color: #0038c6;
+  box-shadow: 0 0 10px rgba(0, 56, 198, 0.6);
+}
+
+.tabs button:hover {
+  background-color: #C70039;
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 56, 198, 0.6);
+}

@@ -3,8 +3,9 @@
     padding: 10px;
     font-size: 40px;
     font-weight: bold;
-    background-color: #fff1e1;
+    background-color: #121212;
     display: flex;
-    color: #ee813d;
-
-}
+    color: #C70039;
+    border-bottom: 3px solid #0038c6;
+  }
+  
