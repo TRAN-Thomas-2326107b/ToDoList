@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import '../css/Footer.css';
-import Modal from './Modal';
+import React, { useState, useEffect } from 'react';
+import './Footer.css';
+import Modal from '../Modal/Modal';
 
-const Footer = ({ ajoutTache, ajoutCategorie, categories, setActiveTab, activeTab }) => {
+const Footer = ({ ajoutTache, ajoutCategorie,modifierTache, modifierCategorie, categories, setActiveTab, activeTab, taskToEdit, setTaskToEdit, categoryToEdit,setCategoryToEdit }) => {
   const [showTacheModal, setShowTacheModal] = useState(false);
   const [showCategorieModal, setShowCategorieModal] = useState(false);
 
@@ -16,17 +16,59 @@ const Footer = ({ ajoutTache, ajoutCategorie, categories, setActiveTab, activeTa
   const [newCategoryTitle, setNewCategoryTitle] = useState("");
   const [newCategoryColor, setNewCategoryColor] = useState("#000000");
 
+
+  useEffect(() => {
+    if (taskToEdit) {
+      setNewTitle(taskToEdit.title);
+      setNewDescription(taskToEdit.description);
+      setNewDateEcheance(taskToEdit.date_echeance);
+      setNewEtat(taskToEdit.etat);
+      setNewUrgent(taskToEdit.urgent);
+      setSelectedCategory(taskToEdit.categoryId || "");
+      setShowTacheModal(true);
+    }
+  }, [taskToEdit]);
+  
+  useEffect(() => {
+    if (categoryToEdit) {
+      setNewCategoryTitle(categoryToEdit.title);
+      setNewCategoryColor(categoryToEdit.color);
+      setShowCategorieModal(true);
+    }
+  }, [categoryToEdit]);
+
   const handleTacheSubmit = (e) => {
     e.preventDefault();
-    ajoutTache(newTitle, newDescription, newDateEcheance, newEtat, newUrgent, selectedCategory);
+    if (taskToEdit) {
+      modifierTache(taskToEdit.id, {
+        title: newTitle,
+        description: newDescription,
+        date_echeance: newDateEcheance,
+        etat: newEtat,
+        urgent: newUrgent,
+      });
+    } else {
+      ajoutTache(newTitle, newDescription, newDateEcheance, newEtat, newUrgent, selectedCategory);
+    }
+    setTaskToEdit(null);
     setShowTacheModal(false);
   };
-
+  
   const handleCategorieSubmit = (e) => {
     e.preventDefault();
-    ajoutCategorie(newCategoryTitle, newCategoryColor);
+    if (categoryToEdit) {
+      modifierCategorie(categoryToEdit.id, {
+        title: newCategoryTitle,
+        color: newCategoryColor,
+      });
+    } else {
+      ajoutCategorie(newCategoryTitle, newCategoryColor);
+    }
+    setCategoryToEdit(null);
     setShowCategorieModal(false);
   };
+
+  
 
   return (
     <div className="Footer">
