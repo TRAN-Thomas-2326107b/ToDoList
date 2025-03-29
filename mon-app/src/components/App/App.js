@@ -51,13 +51,24 @@ function App() {
     return true;
   })
   .sort((a, b) => {
-    if (sortBy === "title") return a.title.localeCompare(b.title);
-    if (sortBy === "date_creation") return new Date(a.date_creation) - new Date(b.date_creation);
-    if (sortBy === "date_echeance") return new Date(a.date_echeance) - new Date(b.date_echeance);
+    if (sortBy === "title") {
+      return a.title.localeCompare(b.title);
+    }
+    if (sortBy === "date_creation") {
+      return new Date(a.date_creation.split('/').reverse().join('-')) - new Date(b.date_creation.split('/').reverse().join('-'));
+    }
+    if (sortBy === "date_echeance") {
+      return new Date(a.date_echeance.split('/').reverse().join('-')) - new Date(b.date_echeance.split('/').reverse().join('-'));
+    }
     return 0;
   });
 
   const ajoutTache = (newTitle, newDescription, newDateEcheance, newEtat, newUrgent, categoryId) => {
+    if (newTitle.length < 3) {
+      alert("Le nom de la tâche doit contenir au moins 3 caractères.");
+      return;
+    }
+    
     const newTache = {
       id: currentTodos.taches.length + 101,
       title: newTitle,
@@ -89,6 +100,11 @@ function App() {
   };
 
   const ajoutCategorie = (newCategoryTitle, newCategoryColor) => {
+    if (newCategoryTitle.length < 3) {
+      alert("Le nom de la catégorie doit contenir au moins 3 caractères.");
+      return;
+    }
+    
     const newCategory = {
       id: currentTodos.categories.length + 201,
       title: newCategoryTitle,
@@ -102,7 +118,6 @@ function App() {
       categories: [...prevTodos.categories, newCategory],
     }));
   };
-
 
   const supprimerCategorie = (id) => {
     const newCategories = currentTodos.categories.filter((categorie) => categorie.id !== id);

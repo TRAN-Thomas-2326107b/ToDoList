@@ -50,6 +50,14 @@ const Footer = ({ ajoutTache, ajoutCategorie,modifierTache, modifierCategorie, c
     } else {
       ajoutTache(newTitle, newDescription, newDateEcheance, newEtat, newUrgent, selectedCategory);
     }
+  
+    setNewTitle("");
+    setNewDescription("");
+    setNewDateEcheance("");
+    setNewEtat("Nouveau");
+    setNewUrgent(false);
+    setSelectedCategory("");
+  
     setTaskToEdit(null);
     setShowTacheModal(false);
   };
@@ -64,11 +72,33 @@ const Footer = ({ ajoutTache, ajoutCategorie,modifierTache, modifierCategorie, c
     } else {
       ajoutCategorie(newCategoryTitle, newCategoryColor);
     }
+
+    setNewCategoryTitle("");
+    setNewCategoryColor("#000000");
+    
     setCategoryToEdit(null);
     setShowCategorieModal(false);
   };
 
+  const handleCloseTacheModal = () => {
+    setShowTacheModal(false);
+    setTaskToEdit(null);
   
+    setNewTitle("");
+    setNewDescription("");
+    setNewDateEcheance("");
+    setNewEtat("Nouveau");
+    setNewUrgent(false);
+    setSelectedCategory("");
+  };
+  
+  const handleCloseCategorieModal = () => {
+    setShowCategorieModal(false);
+    setCategoryToEdit(null);
+  
+    setNewCategoryTitle("");
+    setNewCategoryColor("#000000");
+  };
 
   return (
     <div className="Footer">
@@ -80,7 +110,7 @@ const Footer = ({ ajoutTache, ajoutCategorie,modifierTache, modifierCategorie, c
         <button className="Ajouter" onClick={() => setShowCategorieModal(true)}>Ajouter une catégorie</button>
       )}
    
-      <Modal show={showTacheModal} onClose={() => setShowTacheModal(false)}>
+      <Modal show={showTacheModal} onClose={handleCloseTacheModal}>
         <h3>Ajouter une nouvelle tâche</h3>
         <form onSubmit={handleTacheSubmit}>
           <label>
@@ -126,7 +156,7 @@ const Footer = ({ ajoutTache, ajoutCategorie,modifierTache, modifierCategorie, c
         </form>
       </Modal>
 
-      <Modal show={showCategorieModal} onClose={() => setShowCategorieModal(false)}>
+      <Modal show={showCategorieModal} onClose={handleCloseCategorieModal}>
         <h3>Ajouter une nouvelle catégorie</h3>
         <form onSubmit={handleCategorieSubmit}>
           <label>

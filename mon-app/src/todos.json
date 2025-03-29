@@ -2,52 +2,165 @@
     "taches": [
         {
             "id": 101,
-            "title": "1. Fonctionnalités",
-            "description": "",
-            "date_creation": "01/01/2025",
-            "date_echeance": "20/03/2025",
+            "title": "1. Sauver la ville",
+            "description": "Sauver New York des criminels et des menaces.",
+            "date_creation": "01/03/2025",
+            "date_echeance": "15/03/2025",
             "etat": "Reussi",
-            "urgent": false
+            "urgent": true
         },
         {
             "id": 102,
-            "title": "2. Etude de marché",
-            "description": "",
-            "date_creation": "01/01/2025",
-            "date_echeance": "01/04/2025",
+            "title": "2. Enquête sur le Vautour",
+            "description": "Suivre et découvrir les intentions du Vautour.",
+            "date_creation": "02/03/2025",
+            "date_echeance": "30/03/2025",
             "etat": "En attente",
             "urgent": false
         },
         {
             "id": 103,
-            "title": "3. Wireframes",
-            "description": "",
-            "date_creation": "01/01/2025",
-            "date_echeance": "01/04/2025",
+            "title": "3. Test des nouvelles toiles",
+            "description": "Test des nouvelles toiles et gadgets Spider-Man.",
+            "date_creation": "03/03/2025",
+            "date_echeance": "25/03/2025",
             "etat": "Nouveau",
+            "urgent": false
+        },
+        {
+            "id": 104,
+            "title": "4. Sauver Mary Jane",
+            "description": "Sauver Mary Jane d'une situation dangereuse.",
+            "date_creation": "04/03/2025",
+            "date_echeance": "10/03/2025",
+            "etat": "Reussi",
+            "urgent": true
+        },
+        {
+            "id": 105,
+            "title": "5. Affronter Venom",
+            "description": "Lutter contre Venom dans les rues de New York.",
+            "date_creation": "05/03/2025",
+            "date_echeance": "20/03/2025",
+            "etat": "En attente",
+            "urgent": true
+        },
+        {
+            "id": 106,
+            "title": "6. Collecter des informations sur Norman Osborn",
+            "description": "Obtenir des informations sur les activités suspectes de Norman Osborn.",
+            "date_creation": "06/03/2025",
+            "date_echeance": "15/04/2025",
+            "etat": "Nouveau",
+            "urgent": false
+        },
+        {
+            "id": 107,
+            "title": "7. Recruter un nouveau partenaire",
+            "description": "Trouver un partenaire pour l'aider dans sa mission, comme le Scarlet Spider.",
+            "date_creation": "07/03/2025",
+            "date_echeance": "30/03/2025",
+            "etat": "Nouveau",
+            "urgent": false
+        },
+        {
+            "id": 108,
+            "title": "8. Prévenir le SHIELD",
+            "description": "Informer le SHIELD de l'apparition de nouvelles menaces à New York.",
+            "date_creation": "08/03/2025",
+            "date_echeance": "25/03/2025",
+            "etat": "En attente",
+            "urgent": false
+        },
+        {
+            "id": 109,
+            "title": "9. Préparer le costume amélioré",
+            "description": "Préparer et améliorer le costume avec de nouvelles fonctionnalités.",
+            "date_creation": "09/03/2025",
+            "date_echeance": "05/04/2025",
+            "etat": "Nouveau",
+            "urgent": false
+        },
+        {
+            "id": 110,
+            "title": "10. Affronter le Docteur Octopus",
+            "description": "Faire face à l'attaque du Docteur Octopus.",
+            "date_creation": "10/03/2025",
+            "date_echeance": "20/03/2025",
+            "etat": "Reussi",
             "urgent": true
         }
     ],
     "categories": [
         {
             "id": 201,
-            "title": "Marketing",
-            "color": "orange",
-            "icon": "",
+            "title": "Mission Spider-Man",
+            "color": "red",
+            "icon": "spider",
             "actif": true
         },
         {
             "id": 202,
-            "title": "Ancien",
+            "title": "Enquête",
             "color": "blue",
-            "icon": "",
-            "actif": false
+            "icon": "magnifying-glass",
+            "actif": true
+        },
+        {
+            "id": 203,
+            "title": "Combat",
+            "color": "purple",
+            "icon": "fist",
+            "actif": true
+        },
+        {
+            "id": 204,
+            "title": "Planification",
+            "color": "green",
+            "icon": "gear",
+            "actif": true
         }
     ],
     "relations": [
         {
+            "tache": 101,
+            "categorie": 203
+        },
+        {
             "tache": 102,
-            "categorie": 201
+            "categorie": 202
+        },
+        {
+            "tache": 103,
+            "categorie": 204
+        },
+        {
+            "tache": 104,
+            "categorie": 203
+        },
+        {
+            "tache": 105,
+            "categorie": 203
+        },
+        {
+            "tache": 106,
+            "categorie": 202
+        },
+        {
+            "tache": 107,
+            "categorie": 204
+        },
+        {
+            "tache": 108,
+            "categorie": 202
+        },
+        {
+            "tache": 109,
+            "categorie": 204
+        },
+        {
+            "tache": 110,
+            "categorie": 203
         }
     ]
 }
