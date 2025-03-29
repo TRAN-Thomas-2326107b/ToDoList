@@ -15,8 +15,10 @@
   font-weight: bold;
   border-radius: 8px;
   cursor: pointer;
-  margin: 3px;
+  margin: 3px 0;
   transition: 0.3s ease-in-out;
+  width: 100%;
+  display: block;
 }
 
 .Ajouter:hover {
@@ -67,25 +69,25 @@ form button:hover {
   box-shadow: 0 0 10px rgba(0,56,198, 0.6);
 }
 
-
-
 .tabs {
   display: flex;
-  justify-content: center;
+  justify-content: space-between; 
+  width: 100%; 
   margin-top: 20px;
 }
 
 .tabs button {
   background-color: #1A1A1A;
   color: white;
-  padding: 12px 30px;
-  margin: 0 10px;
+  padding: 12px;
+  margin: 0;
   border: 1px solid #C70039;
   border-radius: 8px;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s ease-in-out;
+  width: 100%;
 }
 
 .tabs button.active {

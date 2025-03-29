@@ -19,39 +19,43 @@ function App() {
   const [filterFait, setFilterFait] = useState(null);
 
   const filteredAndSortedTasks = currentTodos.taches
-    .filter(tache => {
-      if (filterCategory.length > 0) {
-        const relation = currentTodos.relations.find(rela => rela.tache === tache.id);
-        if (!relation || !filterCategory.includes(relation.categorie.toString())) {
-          return false;
-        }
-      }
-
-      if (filterEtat.length > 0 && !filterEtat.includes(tache.etat)) {
+  .filter(tache => {
+    if (filterCategory.length > 0 && !filterCategory.includes("")) {
+      const relation = currentTodos.relations.find(rela => rela.tache === tache.id);
+      if (!relation || !filterCategory.includes(relation.categorie.toString())) {
         return false;
       }
+    }
 
-      if (filterUrgent !== null) {
-        if ((filterUrgent === "true" && !tache.urgent) || (filterUrgent === "false" && tache.urgent)) {
-          return false;
-        }
+    if (filterEtat.length > 0) {
+      if (!filterEtat.includes(tache.etat)) {
+        return false;
       }
+    } else if (tache.etat === "Reussi") {
+      return false;
+    }
 
-      if (filterFait !== null) {
-        const isDone = tache.etat === "Reussi";
-        if ((filterFait === "true" && !isDone) || (filterFait === "false" && isDone)) {
-          return false;
-        }
+    if (filterUrgent !== "" && filterUrgent !== null) {
+      if ((filterUrgent === "true" && !tache.urgent) || (filterUrgent === "false" && tache.urgent)) {
+        return false;
       }
+    }
 
-      return true;
-    })
-    .sort((a, b) => {
-      if (sortBy === "title") return a.title.localeCompare(b.title);
-      if (sortBy === "date_creation") return new Date(a.date_creation) - new Date(b.date_creation);
-      if (sortBy === "date_echeance") return new Date(a.date_echeance) - new Date(b.date_echeance);
-      return 0;
-    });
+    if (filterFait !== "" && filterFait !== null) {
+      const isDone = tache.etat === "Reussi";
+      if ((filterFait === "true" && !isDone) || (filterFait === "false" && isDone)) {
+        return false;
+      }
+    }
+
+    return true;
+  })
+  .sort((a, b) => {
+    if (sortBy === "title") return a.title.localeCompare(b.title);
+    if (sortBy === "date_creation") return new Date(a.date_creation) - new Date(b.date_creation);
+    if (sortBy === "date_echeance") return new Date(a.date_echeance) - new Date(b.date_echeance);
+    return 0;
+  });
 
   const ajoutTache = (newTitle, newDescription, newDateEcheance, newEtat, newUrgent, categoryId) => {
     const newTache = {
@@ -98,6 +102,20 @@ function App() {
       categories: [...prevTodos.categories, newCategory],
     }));
   };
+
+
+  const supprimerCategorie = (id) => {
+    const newCategories = currentTodos.categories.filter((categorie) => categorie.id !== id);
+  
+    const newRelations = currentTodos.relations.filter((relation) => relation.categorie !== id);
+  
+    setCurrentTodos((prevTodos) => ({
+      ...prevTodos,
+      categories: newCategories,
+      relations: newRelations,
+    }));
+  };
+  
 
   const supprimerTache = (id) => {
     const newTodos = {
@@ -155,7 +173,7 @@ function App() {
                 const category = currentTodos.categories.find((cate) => cate.id === relation?.categorie);
 
                 return (
-                  <div key={tache.id} className={`task ${tache.urgent ? "urgent" : ""}`}>
+                  <div key={tache.id} className={`task ${tache.urgent ? "urgent" : ""} ${tache.etat === "Reussi" ? "reussi" : ""}`}>
                     <h3>{tache.title}</h3>
                     <p><strong>Description :</strong> {tache.description}</p>
                     <p><strong>Créée le :</strong> {tache.date_creation}</p>
@@ -174,13 +192,14 @@ function App() {
         {activeTab === "categories" && (
           <div className="category-list">
             {currentTodos.categories.map((categorie) => (
-              <div key={categorie.id} className="category" style={{ borderLeft: `5px solid ${categorie.color}` }}>
+              <div key={categorie.id} className="category" style={{ backgroundColor: categorie.color,borderLeft: `5px solid ${categorie.color}`}}>
                 <h3>{categorie.title}</h3>
                 <button className="modifier-categorie" onClick={() => setCategoryToEdit(categorie)}>🖊</button>
+                <button className="supprimer-categorie" onClick={() => supprimerCategorie(categorie.id)}>✖</button>
               </div>
             ))}
           </div>
-        )}
+        )} 
       </main>
 
       <footer>

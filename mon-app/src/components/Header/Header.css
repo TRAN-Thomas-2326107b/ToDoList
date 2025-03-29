@@ -7,5 +7,14 @@
     display: flex;
     color: #C70039;
     border-bottom: 3px solid #0038c6;
+    justify-content: space-between;
+    align-items: center;
   }
-  
+
+
+.header-chart {
+    width: 100px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}

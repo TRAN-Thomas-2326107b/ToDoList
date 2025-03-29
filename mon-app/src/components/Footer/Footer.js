@@ -72,10 +72,14 @@ const Footer = ({ ajoutTache, ajoutCategorie,modifierTache, modifierCategorie, c
 
   return (
     <div className="Footer">
-      <button className="Ajouter" onClick={() => setShowTacheModal(true)}>Ajouter une tâche</button>
-      <button className="Ajouter" onClick={() => setShowCategorieModal(true)}>Ajouter une catégorie</button>
+      {activeTab === "taches" && (
+        <button className="Ajouter" onClick={() => setShowTacheModal(true)}>Ajouter une tâche</button>
+      )}
 
-      {/* Modals for adding task and category */}
+      {activeTab === "categories" && (
+        <button className="Ajouter" onClick={() => setShowCategorieModal(true)}>Ajouter une catégorie</button>
+      )}
+   
       <Modal show={showTacheModal} onClose={() => setShowTacheModal(false)}>
         <h3>Ajouter une nouvelle tâche</h3>
         <form onSubmit={handleTacheSubmit}>
@@ -139,7 +143,7 @@ const Footer = ({ ajoutTache, ajoutCategorie,modifierTache, modifierCategorie, c
         </form>
       </Modal>
 
-      {/* Onglets en bas */}
+  
       <div className="tabs">
         <button className={activeTab === "taches" ? "active" : ""} onClick={() => setActiveTab("taches")}>
           Tâches

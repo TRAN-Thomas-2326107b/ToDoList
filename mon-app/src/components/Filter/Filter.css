@@ -1,119 +1,91 @@
-.filter-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    background-color: #1E1E1E;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 56, 198, 0.514);
-  }
-  
-  .filter-header {
-    font-size: 1.5rem;
-    color: white;
-    margin-bottom: 15px;
-  }
-  
-  .filter-section {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .filter-label {
-    font-weight: bold;
-    color: #C70039;
-  }
-  
-  .filter-input, .filter-select {
-    background-color: #121212;
-    color: white;
-    border: 1px solid #C70039;
-    border-radius: 5px;
-    padding: 8px;
-    font-size: 1rem;
-  }
-  
-  .filter-input:focus, .filter-select:focus {
-    outline: none;
-    border-color: #FF3B3F;
-    box-shadow: 0 0 5px rgba(255, 59, 63, 0.7);
-  }
-  
-  .filter-input::placeholder, .filter-select::placeholder {
-    color: #999;
-  }
-  
-  .filter-button {
-    background-color: #C70039;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
-  
-  .filter-button:hover {
-    background-color: #FF3B3F;
-    transform: scale(1.1);
-  }
-  
-  .filter-button:active {
-    background-color: #C70039;
-    transform: scale(0.95);
-  }
-  
-  .filter-checkbox-label {
-    color: white;
-    font-weight: normal;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .filter-checkbox {
-    width: 20px;
-    height: 20px;
-    background-color: #1E1E1E;
-    border: 1px solid #C70039;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .filter-checkbox:checked {
-    background-color: #FF3B3F;
-    border-color: #FF3B3F;
-  }
-  
-  .filter-checkbox:checked::before {
-    content: "✔";
-    color: white;
-    text-align: center;
-    line-height: 18px;
-  }
-  
-  .filter-category-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .filter-category {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .filter-category-color {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: #C70039;
-  }
-  
-  .filter-category-text {
-    color: white;
-  }
-  
+.filter {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: #1E1E1E;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 56, 198, 0.514);
+  color: white;
+}
+
+.filter label {
+  font-weight: bold;
+  color: #C70039;
+  margin-bottom: 5px;
+}
+
+.filter select {
+  background-color: #121212;
+  color: white;
+  border: 1px solid #C70039;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter select:focus {
+  outline: none;
+  border-color: #FF3B3F;
+  box-shadow: 0 0 5px rgba(255, 59, 63, 0.7);
+}
+
+.filter select option {
+  background-color: #1E1E1E;
+  color: white;
+}
+
+.filter select[multiple] {
+  height: 80px;
+}
+
+.filter select option:checked {
+  background-color: #C70039;
+}
+
+.filter .filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filter .filter-button {
+  background-color: #C70039;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.filter .filter-button:hover {
+  background-color: #FF3B3F;
+  transform: scale(1.05);
+}
+
+.filter .filter-button:active {
+  background-color: #C70039;
+  transform: scale(0.95);
+}
+
+
+.filter-checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.filter-checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.filter-checkbox-group input {
+  cursor: pointer;
+}
